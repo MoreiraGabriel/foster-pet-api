@@ -1,6 +1,7 @@
 package com.foster.pet.animal.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -68,9 +70,9 @@ public class Animal implements Serializable{
 	@Size(min = 1, max = 200, message = "O campo 'Descrição' de sociabilidade deve conter entre 1 e 200 caracteres.")
 	private String sociability;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_temperament")
-	private Temperament temperament;
+	@OneToMany(mappedBy = "animal", 
+			cascade = CascadeType.ALL)
+	private List<Temperament> temperament;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_health")

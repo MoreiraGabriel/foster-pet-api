@@ -13,9 +13,11 @@ public enum ErrorCode {
 
 	// Not Found
 	ANIMAL_NOT_FOUND("Animal não foi encontrado"),
+	BREED_NOT_FOUND("Raça não foi encontrada"),
 
 	// Already Exists
-	ANIMAL_ALREADY_EXISTS("Animal já foi cadastrado");
+	ANIMAL_ALREADY_EXISTS("Animal já foi cadastrado"),
+	BREED_ALREADY_EXISTS("Raça já foi cadastrada");
 
 	private final String message;
 

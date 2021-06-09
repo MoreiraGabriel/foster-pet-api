@@ -1,5 +1,7 @@
 package com.foster.pet.animal.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,11 +14,11 @@ public interface BreedService {
 	
 	BreedDTO findById(Long id);
 	
-	BreedDTO findByName(String name);
+	List<BreedDTO> findByName(String name);
 	
 	BreedDTO create(BreedRequest request);
 	
-	BreedDTO update(BreedRequest request);
+	BreedDTO update(Long id, BreedRequest request);
 	
-	Boolean delete(Long id);
+	BreedDTO delete(Long id);
 }

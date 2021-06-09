@@ -1,4 +1,4 @@
-package com.foster.pet.exception.animal.handler;
+package com.foster.pet.animal.exception.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import com.foster.pet.animal.util.Response;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class AnimalNotFoundExceptionHandler extends ResponseEntityExceptionHandler{
+public class BreedNotFoundExceptionHandler extends ResponseEntityExceptionHandler{
 
 	public final ResponseEntity<Object> exceptionHandler(AnimalAlreadyExistsException exception){
 		log.error("AnimalNotFoundException", exception);
