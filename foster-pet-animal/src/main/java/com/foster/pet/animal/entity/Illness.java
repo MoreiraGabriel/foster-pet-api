@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -36,5 +38,9 @@ public class Illness implements Serializable{
 	
 	@Enumerated(EnumType.STRING)
 	private IllnessTypeEnum type;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_health")
+	private Health health;
 	
 }

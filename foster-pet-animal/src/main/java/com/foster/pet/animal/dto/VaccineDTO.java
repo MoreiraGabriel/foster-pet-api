@@ -7,15 +7,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Api(value = "DTO para raça")
-public class BreedDTO {
-
+@Api(value = "DTO para vacina")
+public class VaccineDTO {
+	
 	@ApiModelProperty(value = "id")
 	private Long id;
 	
-	@ApiModelProperty(value = "Nome")
+	@ApiModelProperty("Nome da vacina")
 	private String name;
-	
-	@ApiModelProperty(value = "Descrição")
-	private String description;
+
 }

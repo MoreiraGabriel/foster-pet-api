@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.foster.pet.animal.enums.BloodTypeEnum;
@@ -64,15 +65,17 @@ public class Animal implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private SizeEnum size;
 	
+	private byte[] img;
+	
 	@Size(min = 1, max = 250, message = "O campo 'História' deve conter entre 1 e 250 caracteres.")
 	private String story;
 	
 	@Size(min = 1, max = 200, message = "O campo 'Descrição' de sociabilidade deve conter entre 1 e 200 caracteres.")
 	private String sociability;
 	
-	@OneToMany(mappedBy = "animal", 
-			cascade = CascadeType.ALL)
-	private List<Temperament> temperament;
+	@NotNull
+	@Column(nullable = true)
+	private String temperament;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_health")

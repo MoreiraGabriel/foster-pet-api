@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "vaccine")
+@ApiModel(value = "Vacina")
 public class Vaccine implements Serializable{
 
 	private static final long serialVersionUID = -3953222806528346173L;
@@ -27,5 +31,7 @@ public class Vaccine implements Serializable{
 	@Size(min = 1, max = 200, message = "O campo 'Nome Vacina' deve conter entre 1 e 200 caracteres.")
 	private String name;
 	
-	private String icon;
+	@ManyToOne
+	@JoinColumn(name = "id_health")
+	private Health health;
 }

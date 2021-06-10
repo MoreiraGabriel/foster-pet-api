@@ -14,10 +14,12 @@ public enum ErrorCode {
 	// Not Found
 	ANIMAL_NOT_FOUND("Animal não foi encontrado"),
 	BREED_NOT_FOUND("Raça não foi encontrada"),
+	VACCINE_NOT_FOUND("Vacina não foi encontrada"),
 
 	// Already Exists
-	ANIMAL_ALREADY_EXISTS("Animal já foi cadastrado"),
-	BREED_ALREADY_EXISTS("Raça já foi cadastrada");
+	ANIMAL_ALREADY_EXISTS("Animal foi cadastrado"),
+	BREED_ALREADY_EXISTS("Raça já cadastrada"),
+	VACCINE_ALREADY_EXISTS("Vacina foi cadastrada");
 
 	private final String message;
 

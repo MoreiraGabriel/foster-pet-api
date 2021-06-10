@@ -16,85 +16,85 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.foster.pet.animal.dto.BreedDTO;
-import com.foster.pet.animal.request.BreedRequest;
-import com.foster.pet.animal.service.BreedService;
+import com.foster.pet.animal.dto.VaccineDTO;
+import com.foster.pet.animal.request.VaccineRequest;
+import com.foster.pet.animal.service.VaccineService;
 import com.foster.pet.animal.util.Response;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/breed")
-@Api(value = "Controller para raça")
-public class BreedController {
+@RequestMapping("vaccine")
+@Api(value = "Controller para vacine")
+public class VaccineController {
 	
 	@Autowired
-	BreedService breedService;
+	private VaccineService service;
 	
 	@ApiOperation(value = "Endpoint para listar todas as raças.")
 	@GetMapping
-	public ResponseEntity<Response<Page<BreedDTO>>> findAll(Pageable pageable){
+	public ResponseEntity<Response<Page<VaccineDTO>>> findAll(Pageable pageable){
 		
-		Response<Page<BreedDTO>> response = new Response<>();
+		Response<Page<VaccineDTO>> response = new Response<>();
 		
-		Page<BreedDTO> breeds = breedService.findAll(pageable);		
-		response.setData(breeds);
+		Page<VaccineDTO> vaccines = service.findAll(pageable);		
+		response.setData(vaccines);
 		
 		return ResponseEntity.ok(response);
 	}
 	
 	@ApiOperation(value = "Endpoint para listar raça por id.")
 	@GetMapping("{id}")
-	public ResponseEntity<Response<BreedDTO>> findById(@PathVariable Long id){
+	public ResponseEntity<Response<VaccineDTO>> findById(@PathVariable Long id){
 		
-		Response<BreedDTO> response = new Response<>();
+		Response<VaccineDTO> response = new Response<>();
 		
-		BreedDTO breed = breedService.findById(id);		
-		response.setData(breed);
+		VaccineDTO vaccine = service.findById(id);		
+		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);
 	}
 	
 	@ApiOperation(value = "Endpoint para listar raça por nome.")
 	@GetMapping(params = "name")
-	public ResponseEntity<Response<List<BreedDTO>>> findByName(@RequestParam String name){
+	public ResponseEntity<Response<List<VaccineDTO>>> findByName(@RequestParam String name){
 		
-		Response<List<BreedDTO>> response = new Response<>();
+		Response<List<VaccineDTO>> response = new Response<>();
 		
-		List<BreedDTO> breed = breedService.findByName(name);		
-		response.setData(breed);
+		List<VaccineDTO> vaccine = service.findByName(name);		
+		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);
 	}
 	
 	@ApiOperation(value = "Endpoint para cadastrar raça.")
 	@PostMapping
-	public ResponseEntity<Response<BreedDTO>> create(@RequestBody BreedRequest request) {
-		Response<BreedDTO> response = new Response<>();
-		BreedDTO breed = breedService.create(request);
-		response.setData(breed);
+	public ResponseEntity<Response<VaccineDTO>> create(@RequestBody VaccineRequest request) {
+		Response<VaccineDTO> response = new Response<>();
+		VaccineDTO vaccine = service.create(request);
+		response.setData(vaccine);
 		return ResponseEntity.ok(response);		
 	}
 	
 	@ApiOperation(value = "Endpoint para atualizar raça.")
 	@PutMapping("{id}")
-	public ResponseEntity<Response<BreedDTO>> update(@PathVariable Long id, @RequestBody BreedRequest request) {
-		Response<BreedDTO> response = new Response<>();
+	public ResponseEntity<Response<VaccineDTO>> update(@PathVariable Long id, @RequestBody VaccineRequest request) {
+		Response<VaccineDTO> response = new Response<>();
 		
-		BreedDTO breed = breedService.update(id, request);
-		response.setData(breed);
+		VaccineDTO vaccine = service.update(id, request);
+		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);		
 	}
 	
 	@ApiOperation(value = "Endpoint para listar apagar por id.")
 	@DeleteMapping("{id}")
-	public ResponseEntity<Response<BreedDTO>> delete(@PathVariable Long id) {
-		Response<BreedDTO> response = new Response<>();
+	public ResponseEntity<Response<VaccineDTO>> delete(@PathVariable Long id) {
+		Response<VaccineDTO> response = new Response<>();
 		
-		BreedDTO breed = breedService.delete(id);
-		response.setData(breed);
+		VaccineDTO vaccine = service.delete(id);
+		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);		
 	}

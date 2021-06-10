@@ -1,11 +1,14 @@
 package com.foster.pet.animal.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,9 +31,13 @@ public class Health implements Serializable{
 	
 	private Boolean isVermifugued;
 	
-	private Illness illness;
+	@OneToMany(mappedBy = "health",
+			cascade = CascadeType.ALL)
+	private List<Illness> listIllness;
 	
-	private Vaccine vaccine;
+	@OneToMany(mappedBy = "health",
+			cascade = CascadeType.ALL)
+	private List<Vaccine> listVaccine;
 	
 	@OneToOne(mappedBy = "health")
 	private Animal animal;

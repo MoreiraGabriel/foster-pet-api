@@ -96,10 +96,13 @@ public class BreedServiceImpl implements BreedService {
 	@Override
 	public BreedDTO delete(Long id) {
 		log.info("Start - BreedServiceImpl.delete - Id:{}", id);
+		
 		Breed breed = breedProcessor.exists(id);
 		breedRepository.deleteById(id);
 		BreedDTO dto = mapper.map(breed, BreedDTO.class);
+		
 		log.info("End - BreedServiceImpl.delete - Id:{}", BreedDTO.class);
+		
 		return dto;
 	}
 	
