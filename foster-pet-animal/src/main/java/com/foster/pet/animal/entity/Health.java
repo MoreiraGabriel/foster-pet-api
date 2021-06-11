@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,11 +33,11 @@ public class Health implements Serializable{
 	private Boolean isVermifugued;
 	
 	@OneToMany(mappedBy = "health",
-			cascade = CascadeType.ALL)
+			cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Illness> listIllness;
 	
 	@OneToMany(mappedBy = "health",
-			cascade = CascadeType.ALL)
+			cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Vaccine> listVaccine;
 	
 	@OneToOne(mappedBy = "health")

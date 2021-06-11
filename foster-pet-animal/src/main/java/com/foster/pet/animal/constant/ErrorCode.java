@@ -16,6 +16,7 @@ public enum ErrorCode {
 	BREED_NOT_FOUND("Raça não foi encontrada"),
 	VACCINE_NOT_FOUND("Vacina não foi encontrada"),
 	ILLNESS_NOT_FOUND("Doença não foi encontrada"),
+	HEALTH_NOT_FOUND("Saúde não foi encontrada"),
 
 	// Already Exists
 	ANIMAL_ALREADY_EXISTS("Animal foi cadastrado"),

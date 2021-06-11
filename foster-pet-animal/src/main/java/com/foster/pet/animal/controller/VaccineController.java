@@ -88,7 +88,7 @@ public class VaccineController {
 		return ResponseEntity.ok(response);		
 	}
 	
-	@ApiOperation(value = "Endpoint para listar apagar por id.")
+	@ApiOperation(value = "Endpoint para apagar por id.")
 	@DeleteMapping("{id}")
 	public ResponseEntity<Response<VaccineDTO>> delete(@PathVariable Long id) {
 		Response<VaccineDTO> response = new Response<>();
