@@ -65,7 +65,7 @@ public class VaccineServiceImpl implements VaccineService {
 
 	@Override
 	public VaccineDTO create(VaccineRequest request) {
-		log.info("Start - VaccineServiceImpl.create - BreedRequest:{}");
+		log.info("Start - VaccineServiceImpl.create - VaccineRequest:{}", VaccineRequest.class);
 		
 		processor.alreadyExists(request.getName());
 		
@@ -74,7 +74,7 @@ public class VaccineServiceImpl implements VaccineService {
 		
 		VaccineDTO dto = mapper.map(vaccine, VaccineDTO.class);
 		
-		log.info("End - VaccineServiceImpl.create - BreedRequest:{}");
+		log.info("End - VaccineServiceImpl.create - VaccineRequest:{}", VaccineRequest.class);
 		return dto;
 	}
 

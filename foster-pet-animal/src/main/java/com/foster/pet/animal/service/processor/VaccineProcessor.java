@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.foster.pet.animal.entity.Vaccine;
-import com.foster.pet.animal.exception.BreedNotFoundException;
 import com.foster.pet.animal.exception.VaccineAlreadyExistsException;
 import com.foster.pet.animal.exception.VaccineNotFoundException;
 import com.foster.pet.animal.repository.VaccineRepository;
@@ -26,7 +25,7 @@ public class VaccineProcessor {
 		
 		Optional<Vaccine> optional = repository.findById(id);
 		if(optional.isEmpty()) {
-			throw new BreedNotFoundException();
+			throw new VaccineNotFoundException();
 		}
 		
 		log.info("End - VaccineProcessor.exists - Id:{}", id);

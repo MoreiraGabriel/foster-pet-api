@@ -1,7 +1,6 @@
 package com.foster.pet.animal.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -65,6 +64,7 @@ public class Animal implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private SizeEnum size;
 	
+	@Lob
 	private byte[] img;
 	
 	@Size(min = 1, max = 250, message = "O campo 'História' deve conter entre 1 e 250 caracteres.")
