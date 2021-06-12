@@ -1,16 +1,19 @@
 package com.foster.pet.service;
 
-import java.util.Optional;
-
+import com.foster.pet.dto.authentication.AuthenticationFRPDTO;
+import com.foster.pet.dto.authentication.AuthenticationRDTO;
+import com.foster.pet.dto.authentication.TokenRDTO;
 import com.foster.pet.entity.Authentication;
 
 public interface AuthenticationService {
 
-	Optional<Authentication> findById(Long id);
+	AuthenticationFRPDTO findById(Long id);
 
-	Optional<Authentication> findByEmail(String email);
+	AuthenticationFRPDTO findByEmail(String email);
 
-	Authentication persist(Authentication authentication);
+	TokenRDTO refresh(String token);
 
-	void deleteById(Long id);
+	Authentication register(Authentication authentication);
+
+	AuthenticationRDTO remove(Long id);
 }

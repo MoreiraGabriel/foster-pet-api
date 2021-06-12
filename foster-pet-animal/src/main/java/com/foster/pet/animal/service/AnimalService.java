@@ -1,9 +1,12 @@
 package com.foster.pet.animal.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.foster.pet.animal.dto.AnimalDTO;
+import com.foster.pet.animal.request.AnimalRequest;
 
 public interface AnimalService {
 
@@ -11,11 +14,11 @@ public interface AnimalService {
 	
 	AnimalDTO findById(Long id);
 	
-	AnimalDTO findByName(String name);
+	List<AnimalDTO> findByName(String name);
 	
-	AnimalDTO create(AnimalDTO animalDTO);
+	AnimalDTO create(AnimalRequest request);
 	
-	AnimalDTO update(AnimalDTO animalDTO);
+	AnimalDTO update(AnimalDTO request);
 	
-	void delete(Long id);
+	AnimalDTO delete(Long id);
 }
