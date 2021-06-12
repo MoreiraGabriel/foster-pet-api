@@ -78,10 +78,10 @@ public class IllnessServiceImpl implements IllnessService {
 	}
 
 	@Override
-	public IllnessDTO update(Long id, IllnessRequest request) {
+	public IllnessDTO update(IllnessDTO request) {
 		log.info("Start - IllnessServiceImpl.update - IllnessRequest:{}", IllnessRequest.class);
 		
-		Illness illness =  processor.exists(id);
+		Illness illness =  processor.exists(request.getId());
 		illness.setName(request.getName());	
 		
 		illness = repository.save(illness);

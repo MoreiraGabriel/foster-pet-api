@@ -18,7 +18,7 @@ public interface IllnessService {
 	
 	IllnessDTO create(IllnessRequest request);
 	
-	IllnessDTO update(Long id, IllnessRequest request);
+	IllnessDTO update(IllnessDTO request);
 	
 	IllnessDTO delete(Long id);
 }

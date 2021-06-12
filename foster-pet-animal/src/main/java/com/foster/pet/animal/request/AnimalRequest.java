@@ -1,23 +1,20 @@
-package com.foster.pet.animal.dto;
+package com.foster.pet.animal.request;
 
 import com.foster.pet.animal.enums.BloodTypeEnum;
 import com.foster.pet.animal.enums.GenderEnum;
 import com.foster.pet.animal.enums.SizeEnum;
 import com.foster.pet.animal.enums.TypeEnum;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@ApiModel(value = "DTO para animal")
-public class AnimalDTO {
-
-	@ApiModelProperty
-	private Long id;
-
+@Api(value = "Request para animal")
+public class AnimalRequest {
+	
 	@ApiModelProperty
 	private String name;
 	
@@ -58,8 +55,8 @@ public class AnimalDTO {
 	private String temperament;
 	
 	@ApiModelProperty
-	private HealthDTO health;
+	private HealthRequest health;
 	
 	@ApiModelProperty
-	private BreedDTO breed;
+	private BreedRequest breed;
 }

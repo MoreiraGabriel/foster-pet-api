@@ -78,10 +78,10 @@ public class BreedServiceImpl implements BreedService {
 	}
 
 	@Override
-	public BreedDTO update(Long id, BreedRequest request) {
+	public BreedDTO update(BreedDTO request) {
 		log.info("Start - BreedServiceImpl.update - BreedRequest:{}", BreedRequest.class);
 		
-		Breed breed =  breedProcessor.exists(id);
+		Breed breed =  breedProcessor.exists(request.getId());
 		breed.setName(request.getName());
 		breed.setDescription(request.getDescription());
 		

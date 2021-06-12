@@ -78,11 +78,11 @@ public class HealthController {
 	}
 	
 	@ApiOperation(value = "Endpoint para atualizar saúde.")
-	@PutMapping("{id}")
-	public ResponseEntity<Response<HealthDTO>> update(@PathVariable Long id, @RequestBody HealthRequest request) {
+	@PutMapping
+	public ResponseEntity<Response<HealthDTO>> update(@RequestBody HealthDTO request) {
 		Response<HealthDTO> response = new Response<>();
 		
-		HealthDTO vaccine = service.update(id, request);
+		HealthDTO vaccine = service.update(request);
 		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);		

@@ -44,10 +44,10 @@ public class Animal implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private GenderEnum gender;
 	
-	@Size(min = 0, max = 30, message = "O campo idade deve ir de 0 até 30 anos.")
+	//@Size(min = 0, max = 30, message = "O campo idade deve ir de 0 até 30 anos.")
 	private Long age;
 	
-	@Size(min = 0, max = 200, message = "O campo 'Peso' deve ir até 200.")
+//	@Size(min = 0, max = 200, message = "O campo 'Peso' deve ir até 200.")
 	private Double weight;
 	
 	private String color;

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Api(value = "Request para criar raça.")
 public class BreedRequest {
-
+	
 	@NotNull
 	@ApiModelProperty
 	private String name;

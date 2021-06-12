@@ -79,10 +79,10 @@ public class VaccineServiceImpl implements VaccineService {
 	}
 
 	@Override
-	public VaccineDTO update(Long id, VaccineRequest request) {
+	public VaccineDTO update(VaccineDTO request) {
 		log.info("Start - VaccineServiceImpl.update - VaccineRequest:{}", VaccineRequest.class);
 		
-		Vaccine vaccine =  processor.exists(id);
+		Vaccine vaccine =  processor.exists(request.getId());
 		vaccine.setName(request.getName());	
 		
 		vaccine = repository.save(vaccine);

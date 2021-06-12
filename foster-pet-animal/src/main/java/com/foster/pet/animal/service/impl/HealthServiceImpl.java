@@ -82,10 +82,10 @@ public class HealthServiceImpl implements HealthService {
 	}
 
 	@Override
-	public HealthDTO update(Long id, HealthRequest request) {
+	public HealthDTO update(HealthDTO request) {
 		log.info("Start - HealthServiceImpl.create - HealthRequest:{}", HealthRequest.class);
 		
-		Health health =  processor.exists(id);
+		Health health =  processor.exists(request.getId());
 		
 		health = mapper.map(request, Health.class);
 		health = repository.save(health);

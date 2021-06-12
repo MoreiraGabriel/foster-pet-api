@@ -18,7 +18,7 @@ public interface BreedService {
 	
 	BreedDTO create(BreedRequest request);
 	
-	BreedDTO update(Long id, BreedRequest request);
+	BreedDTO update(BreedDTO request);
 	
 	BreedDTO delete(Long id);
 }

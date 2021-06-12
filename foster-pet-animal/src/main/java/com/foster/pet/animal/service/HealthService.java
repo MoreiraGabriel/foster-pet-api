@@ -18,7 +18,7 @@ public interface HealthService {
 	
 	HealthDTO create(HealthRequest request);
 	
-	HealthDTO update(Long id, HealthRequest request);
+	HealthDTO update(HealthDTO request);
 	
 	HealthDTO delete(Long id);
 }

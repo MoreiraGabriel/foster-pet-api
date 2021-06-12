@@ -79,10 +79,10 @@ public class VaccineController {
 	
 	@ApiOperation(value = "Endpoint para atualizar raça.")
 	@PutMapping("{id}")
-	public ResponseEntity<Response<VaccineDTO>> update(@PathVariable Long id, @RequestBody VaccineRequest request) {
+	public ResponseEntity<Response<VaccineDTO>> update(@RequestBody VaccineDTO request) {
 		Response<VaccineDTO> response = new Response<>();
 		
-		VaccineDTO vaccine = service.update(id, request);
+		VaccineDTO vaccine = service.update(request);
 		response.setData(vaccine);
 		
 		return ResponseEntity.ok(response);		

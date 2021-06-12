@@ -18,7 +18,7 @@ public interface VaccineService {
 	
 	VaccineDTO create(VaccineRequest request);
 	
-	VaccineDTO update(Long id, VaccineRequest request);
+	VaccineDTO update(VaccineDTO request);
 	
 	VaccineDTO delete(Long id);
 }

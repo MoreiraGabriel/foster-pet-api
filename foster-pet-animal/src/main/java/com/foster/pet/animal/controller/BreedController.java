@@ -78,17 +78,17 @@ public class BreedController {
 	}
 	
 	@ApiOperation(value = "Endpoint para atualizar raça.")
-	@PutMapping("{id}")
-	public ResponseEntity<Response<BreedDTO>> update(@PathVariable Long id, @RequestBody BreedRequest request) {
+	@PutMapping
+	public ResponseEntity<Response<BreedDTO>> update(@RequestBody BreedDTO request) {
 		Response<BreedDTO> response = new Response<>();
 		
-		BreedDTO breed = breedService.update(id, request);
+		BreedDTO breed = breedService.update(request);
 		response.setData(breed);
 		
 		return ResponseEntity.ok(response);		
 	}
 	
-	@ApiOperation(value = "Endpoint para listar apagar por id.")
+	@ApiOperation(value = "Endpoint para apagar por id.")
 	@DeleteMapping("{id}")
 	public ResponseEntity<Response<BreedDTO>> delete(@PathVariable Long id) {
 		Response<BreedDTO> response = new Response<>();

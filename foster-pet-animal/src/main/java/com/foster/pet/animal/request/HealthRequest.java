@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Api(value = "Request para criar saúde.")
 public class HealthRequest {
-
+	
 	@NotNull
 	@ApiModelProperty
 	private Boolean isCastrated;
