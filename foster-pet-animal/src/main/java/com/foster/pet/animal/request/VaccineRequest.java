@@ -2,8 +2,6 @@ package com.foster.pet.animal.request;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
