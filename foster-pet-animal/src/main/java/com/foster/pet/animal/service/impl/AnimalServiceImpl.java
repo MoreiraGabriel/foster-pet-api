@@ -63,6 +63,16 @@ public class AnimalServiceImpl implements AnimalService{
 		log.info("End - AnimalServiceImpl.findByName - Name:{}", name);
 		return listDto;
 	}
+	
+	@Override
+	public List<AnimalDTO> findByAnimalType(String type) {
+		log.info("Start - AnimalServiceImpl.findBytype - type:{}", type);
+		List<Animal> listBreed = animalRepository.findByAnimalType(type);
+		List<AnimalDTO> listDto = mapper.map(listBreed, new TypeToken<List<AnimalDTO>>() {}.getType());
+		
+		log.info("End - AnimalServiceImpl.findBytype - type:{}", type);
+		return listDto;
+	}
 
 	@Override
 	@Transactional

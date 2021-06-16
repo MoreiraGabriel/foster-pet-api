@@ -16,6 +16,8 @@ public interface AnimalService {
 	
 	List<AnimalDTO> findByName(String name);
 	
+	List<AnimalDTO> findByAnimalType(String type);
+	
 	AnimalDTO create(AnimalRequest request);
 	
 	AnimalDTO update(AnimalDTO request);

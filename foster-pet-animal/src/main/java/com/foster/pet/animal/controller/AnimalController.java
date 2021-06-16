@@ -68,6 +68,18 @@ public class AnimalController {
 		return ResponseEntity.ok(response);
 	}
 	
+	@ApiOperation(value = "Endpoint para listar animal por tipo.")
+	@GetMapping(params = "type")
+	public ResponseEntity<Response<List<AnimalDTO>>> findByType(@RequestParam String type){
+		
+		Response<List<AnimalDTO>> response = new Response<>();
+		
+		List<AnimalDTO> animals = animalService.findByAnimalType(type);		
+		response.setData(animals);
+		
+		return ResponseEntity.ok(response);
+	}
+	
 	@ApiOperation(value = "Endpoint para cadastrar animal.")
 	@PostMapping
 	public ResponseEntity<Response<AnimalDTO>> create(@RequestBody AnimalRequest request) {
